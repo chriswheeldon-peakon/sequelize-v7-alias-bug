@@ -25,4 +25,6 @@ Entity.init(
 );
 await sequelize.sync();
 
-await Entity.findOne({ where: { prop: "hello, world" } });
+// BUG: will execute a select query that incorrectly prefixes
+// the aliased table name in the where clause with the schema.
+await Entity.findOne({ where: { prop: "hello, world" } }); 
