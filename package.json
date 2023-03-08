@@ -1,0 +1,17 @@
+{
+  "name": "sequelize-v7-issue",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Reproduction case for postgres table alias handling bug",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Christopher Wheeldon",
+  "dependencies": {
+    "@sequelize/core": "^7.0.0-alpha.22",
+    "dotenv": "^16.0.3",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4"
+  }
+}
