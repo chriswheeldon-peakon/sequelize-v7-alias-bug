@@ -6,10 +6,11 @@ Secondly, install dependencies with `npm i`.
 
 Then, `npm run start` to reproduce the bug.
 
-An exception should be printed that shows the malformed select query n.b. that the table alias is prefixed with the schema.
+An exception should be printed that shows the malformed select query **n.b.** that the table alias is prefixed with the schema, in this case "dev".
 
 ```
-Executing (default): SELECT "id", "prop", "createdAt", "updatedAt" FROM "dev"."entity" AS "Entity" WHERE "dev"."Entity"."prop" = 'hello, world' LIMIT 1;
+Executing (default): SELECT "id", "prop", "createdAt", "updatedAt"
+  FROM "dev"."entity" AS "Entity" WHERE "dev"."Entity"."prop" = 'hello, world' LIMIT 1;
 
 ...
 
