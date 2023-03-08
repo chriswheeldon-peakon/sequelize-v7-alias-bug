@@ -1,4 +1,6 @@
-# Getting started
+This is intended as a minimal reproducible example for https://github.com/sequelize/sequelize/issues/15749
+
+## Instructions
 
 Firstly, copy `.env.example` to `.env` and set the variables to configure the postgres instance and database to connect to in `index.js`.
 
