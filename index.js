@@ -19,7 +19,7 @@ class Entity extends Sequelize.Model {}
 Entity.init(
   {
     id: { type: DataTypes.INTEGER, primaryKey: true },
-    prop: { type: DataTypes.STRING, allowNull: false },
+    prop: { type: DataTypes.TEXT, allowNull: false },
   },
   { sequelize, tableName: "entity" }
 );
