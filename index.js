@@ -15,16 +15,38 @@ const sequelize = new Sequelize({
 
 await sequelize.createSchema(schema);
 
-class Entity extends Sequelize.Model {}
-Entity.init(
+const Entity = sequelize.define(
+  "entity",
   {
-    id: { type: DataTypes.INTEGER, primaryKey: true },
-    prop: { type: DataTypes.TEXT, allowNull: false },
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
+    },
   },
-  { sequelize, tableName: "entity" }
+  { tableName: "entity", timestamps: false, paranoid: false }
 );
+
+const Relation = sequelize.define(
+  "relation",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
+    },
+  },
+  { tableName: "relation", timestamps: false, paranoid: false }
+);
+
+Entity.hasMany(Relation);
+
 await sequelize.sync();
 
 // BUG: will execute a select query that incorrectly prefixes
-// the aliased table name in the where clause with the schema.
-await Entity.findOne({ where: { prop: "hello, world" } }); 
+// the aliased table name in the on clause with the schema.
+await Relation.findAll({ include: [Entity] });
+
+await sequelize.close();

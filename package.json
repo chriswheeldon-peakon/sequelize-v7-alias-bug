@@ -9,7 +9,7 @@
   },
   "author": "Christopher Wheeldon",
   "dependencies": {
-    "@sequelize/core": "^7.0.0-alpha.22",
+    "@sequelize/core": "^7.0.0-alpha.37",
     "dotenv": "^16.0.3",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4"
